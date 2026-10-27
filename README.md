@@ -10,6 +10,21 @@ A responsive walking companion for Nashik and Kumbh 2027. Built with plain HTML,
 - Share location links using the native share menu or clipboard.
 - Set a home, stay or bus location and request a return walking route using browser geolocation.
 
+## Languages
+
+Use the language selector in the header. English, Hindi, Marathi, Gujarati, Bengali, Tamil, Telugu and Kannada are included. The app initially uses a supported browser language, then remembers an explicit selection on this device. Shared location links carry the selected language. No translation service or API key is required.
+
+The interface, tags, essential categories, walking instructions and status messages are translated. Place search requests the selected language where the provider supports it. Map tiles, proper names, road names and user-entered notes retain their source text. Translations need native-speaker review before a large pilgrim rollout.
+
+To add a language, add a complete dictionary in `dist/translations.js` and a native-name option in the language selector. All dictionaries use the same English keys; tag values stored on devices remain language-independent.
+
+## Checks
+
+```sh
+node --test tests/i18n.test.cjs
+node --check dist/app.js
+```
+
 ## Run locally
 
 No build or package installation is required:
@@ -25,6 +40,8 @@ Visit http://localhost:8080. Geolocation requires HTTPS or localhost and browser
 - `dist/index.html`: page structure
 - `dist/style.css`: responsive styling
 - `dist/app.js`: map, search, routing, saved places and sharing
+- `dist/i18n.js`: language selection, persistence and static text localization
+- `dist/translations.js`: bundled translations
 - `.openai/hosting.json`: original Sites hosting configuration
 
 ## Services and limitations
